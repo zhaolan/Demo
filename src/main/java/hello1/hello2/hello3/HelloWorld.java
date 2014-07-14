@@ -5,14 +5,18 @@ import org.slf4j.LoggerFactory;
 
 //import groovy.util.logging.Slf4j;
 class HelloWorld{
-    private static final Logger logger = LoggerFactory.getLogger(HelloWorld.class);
+   // private static final Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
 
     public String sayHello(){
         String str = "hello";
-        logger.info("123");
-
+        printLog();
         return str;
+    }
+
+    private void printLog() {
+        Logger logger = LoggerFactory.getLogger(HelloWorld.class);
+        logger.info("Hello World logger information.");
     }
 
 }
