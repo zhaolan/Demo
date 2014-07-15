@@ -1,22 +1,21 @@
-package hello1.hello2.hello3;
+package com.thoughtworks.tb.client;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 //import groovy.util.logging.Slf4j;
-class HelloWorld{
+public class HelloWorld{
    // private static final Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
 
     public String sayHello(){
         String str = "hello";
-        printLog();
+        //printLog();
         return str;
     }
 
-    private void printLog() {
+ /*   private void printLog() {
         Logger logger = LoggerFactory.getLogger(HelloWorld.class);
         logger.info("Hello World logger information.");
-    }
+    }*/
 
 }
