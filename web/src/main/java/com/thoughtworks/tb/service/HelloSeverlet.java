@@ -1,6 +1,7 @@
 package com.thoughtworks.tb.service;
-
-import com.thoughtworks.tb.client.HelloWorld;
+import com.thoughtworks.tb.client.CalculatorClient;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,16 +17,21 @@ public class HelloSeverlet extends HttpServlet {
  
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
-        HelloWorld hello = new HelloWorld();
-        String result = hello.sayHello();
+
+
 
  /*       req.setAttribute("","not exist,please try again");
         req.getRequestDispatcher("index.jsp").forward(req, resp);*/
 
-    PrintWriter pw  = resp.getWriter();//得到一个输出流
-    pw.println(result);
-    pw.flush();
-    pw.close();
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "SpringBeans.xml");
+
+        CalculatorClient client = (CalculatorClient) context.getBean("clientBean");
+
+        PrintWriter pw  = resp.getWriter();//得到一个输出流
+        pw.println(client.add("1","2"));
+        pw.flush();
+        pw.close();
     }
  
 

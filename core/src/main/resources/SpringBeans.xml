@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="clientBean" class="com.thoughtworks.tb.client.CalculatorClient">
+        <property name="calculator" ref="linkBean" />
+    </bean>
+
+    <bean id="numBean" class="com.thoughtworks.tb.client.MathCalculator"/>
+    <bean id="linkBean" class="com.thoughtworks.tb.client.LinkCalculator"/>
+
+</beans>

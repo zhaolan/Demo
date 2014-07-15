@@ -9,13 +9,15 @@
 
 	<servlet>
         <servlet-name>servletHello</servlet-name>
-        <servlet-class>com.thoughtworks.tb.service.HelloSeverlet</servlet-class>
+        <servlet-class>com.thoughtworks.tb.service.LineSeverlet</servlet-class>
     </servlet>
  
     <servlet-mapping>
         <servlet-name>servletHello</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+
+
  
  
 </web-app>
