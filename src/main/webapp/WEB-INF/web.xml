@@ -9,7 +9,7 @@
 
 	<servlet>
         <servlet-name>servletHello</servlet-name>
-        <servlet-class>HelloSeverlet</servlet-class>
+        <servlet-class>com.thoughtworks.tb.HelloSeverlet</servlet-class>
     </servlet>
  
     <servlet-mapping>
