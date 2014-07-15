@@ -4,6 +4,7 @@
 .mtj.tmp/
 .gradle/
 build/
+logs/
 
 # Package Files #
 *.jar
