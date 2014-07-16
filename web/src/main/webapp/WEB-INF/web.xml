@@ -8,22 +8,27 @@
   metadata-complete="true">
 
 	<servlet>
-        <servlet-name>servletHello</servlet-name>
-        <servlet-class>com.thoughtworks.tb.service.HelloSeverlet</servlet-class>
+        <servlet-name>caculatorSeverlet</servlet-name>
+        <servlet-class>com.thoughtworks.tb.service.CaculatorSeverlet</servlet-class>
     </servlet>
  
     <servlet-mapping>
-        <servlet-name>servletHello</servlet-name>
+        <servlet-name>caculatorSeverlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>caculatorSeverlet</servlet-name>
+        <url-pattern>/caculatorForm</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
     <listener>
         <listener-class>
             com.thoughtworks.tb.service.CaculatorListener
         </listener-class>
     </listener>
-
-
- 
- 
 </web-app>

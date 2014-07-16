@@ -2,37 +2,47 @@ package com.thoughtworks.tb.service;
 
 import com.thoughtworks.tb.client.CalculatorClient;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Created by lanzhao on 7/15/14.
  */
 public class CaculatorSeverlet extends HttpServlet{
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        this.getServletContext().getAttribute("hello");
+        String add = req.getParameter("add");
+        String toAdd = req.getParameter("toAdd");
 
-
- /*       req.setAttribute("","not exist,please try again");
-        req.getRequestDispatcher("index.jsp").forward(req, resp);*/
-
-        ApplicationContext context = new ClassPathXmlApplicationContext(
-                "SpringBeans.xml");
-
-        CalculatorClient client = (CalculatorClient) context.getBean("clientBean");
-        //this.getServletContext().setAttribute();
-
-        PrintWriter pw  = resp.getWriter();//得到一个输出流
-        pw.println(client.add("1","2")+this.getServletContext());
+       // PrintWriter pw  = resp.getWriter();//得到一个输出流
+        ApplicationContext springIoC = (ApplicationContext)this.getServletContext().getAttribute("SpringIoC");
+        CalculatorClient client = (CalculatorClient)springIoC.getBean("clientBean");
+        req.setAttribute("caculator",client.add(add,toAdd));
+        //req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
+      /*  pw.println(client.add(add,toAdd));
         pw.flush();
-        pw.close();
+        pw.close();*/
+       // super.doGet(req, resp);
 
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        this.getServletContext().getAttribute("hello");
+        String add = req.getParameter("add");
+        String toAdd = req.getParameter("toAdd");
+        ApplicationContext springIoC = (ApplicationContext)this.getServletContext().getAttribute("SpringIoC");
+        CalculatorClient client = (CalculatorClient)springIoC.getBean("clientBean");
+        req.setAttribute("caculator",client.add(add,toAdd));
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }
