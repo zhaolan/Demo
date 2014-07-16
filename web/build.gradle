@@ -8,3 +8,8 @@ dependencies {
     //runtime 'javax.servlet:jstl:1.1.2'
     compile project (':core')
 }
+
+
+jettyRun{
+    httpPort=8090
+}

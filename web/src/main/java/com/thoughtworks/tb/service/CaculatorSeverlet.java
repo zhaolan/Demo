@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 /**
  * Created by lanzhao on 7/15/14.
  */
-public class LineSeverlet extends HttpServlet{
+public class CaculatorSeverlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 

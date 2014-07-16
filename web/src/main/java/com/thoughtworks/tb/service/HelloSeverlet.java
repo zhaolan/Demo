@@ -1,7 +1,7 @@
 package com.thoughtworks.tb.service;
+
 import com.thoughtworks.tb.client.CalculatorClient;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,13 +23,17 @@ public class HelloSeverlet extends HttpServlet {
  /*       req.setAttribute("","not exist,please try again");
         req.getRequestDispatcher("index.jsp").forward(req, resp);*/
 
-        ApplicationContext context = new ClassPathXmlApplicationContext(
+  /*      ApplicationContext context = new ClassPathXmlApplicationContext(
                 "SpringBeans.xml");
 
         CalculatorClient client = (CalculatorClient) context.getBean("clientBean");
+*/
 
+        this.getServletContext().getAttribute("hello");
         PrintWriter pw  = resp.getWriter();//得到一个输出流
-        pw.println(client.add("1","2"));
+        ApplicationContext springIoC = (ApplicationContext)this.getServletContext().getAttribute("SpringIoC");
+        CalculatorClient client = (CalculatorClient)springIoC.getBean("clientBean");
+        pw.println(client.add("60","20"));
         pw.flush();
         pw.close();
     }
