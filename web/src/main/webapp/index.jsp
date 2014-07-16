@@ -6,7 +6,7 @@
 <body>
 <div style="text-align:center;font-size = 20px">
 
-    <form action="caculatorForm" method="post" name="addMethod" id="addMethod"">
+    <form action="caculator" method="post" name="addMethod" id="addMethod"">
         <div style="margin:10px">
 
             <input type="text" name="add" id="add">

@@ -43,6 +43,6 @@ public class CaculatorSeverlet extends HttpServlet{
         ApplicationContext springIoC = (ApplicationContext)this.getServletContext().getAttribute("SpringIoC");
         CalculatorClient client = (CalculatorClient)springIoC.getBean("clientBean");
         req.setAttribute("caculator",client.add(add,toAdd));
-        req.getRequestDispatcher("hello.jsp").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }
