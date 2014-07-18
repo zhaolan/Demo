@@ -6,7 +6,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-<!--    <bean id="clientBean" class="com.thoughtworks.tb.client.CalculatorClient">
+    <!--    <bean id="clientBean" class="com.thoughtworks.tb.client.CalculatorClient">
         <property name="calculator" ref="linkBean" />
     </bean>
 
@@ -14,17 +14,21 @@
     <bean id="linkBean" class="com.thoughtworks.tb.client.LinkCalculator"/>
 
     -->
-    <context:annotation-config />
+    <context:annotation-config/>
 
 
+    <bean id="budgetInfo" class="com.thoughtworks.tb.BudgetClient"/>
+    <bean id="getInfo" class="com.thoughtworks.tb.SQLHandle"/>
+
+ <!--   <jdbc:embedded-database id="dataSource">
+        <jdbc:script location="/EmployeeScheme.sql"/>
+        <jdbc:script location="/AddDate.sql"/>
+    </jdbc:embedded-database>-->
 
 
+    <!--    <bean id="clientBean" class="com.thoughtworks.tb.client.CalculatorClient"/>
 
-    <bean id="clientBean" class="com.thoughtworks.tb.client.CalculatorClient"/>
-
-    <bean id="calculator" class="com.thoughtworks.tb.client.MathCalculator"/>
-
-
+    <bean id="calculator" class="com.thoughtworks.tb.client.MathCalculator"/>-->
 
 
 </beans>

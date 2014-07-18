@@ -9,7 +9,9 @@ public class EmployeeInfo {
     private String id;
     private String name;
     private int buddget;
-    private int cost;
+    private double cost;
+    private double remiand;
+
     private ArrayList<Borrow> borrow;
     private  ArrayList<Lend> lend;
 
@@ -37,11 +39,11 @@ public class EmployeeInfo {
         this.buddget = buddget;
     }
 
-    public int getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 
@@ -59,5 +61,13 @@ public class EmployeeInfo {
 
     public void setLend(ArrayList<Lend> lend) {
         this.lend = lend;
+    }
+
+    public double getRemaind() {
+        return remiand;
+    }
+
+    public void setRemiand(double remiand) {
+        this.remiand = remiand;
     }
 }

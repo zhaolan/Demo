@@ -16,30 +16,25 @@
 <div style="text-align:center;font-size = 20px">
     <h1 style="color:blue">Budget Query</h1>
 
-    <form action="QueryForm" method="post" name="information" id="information" onsubmit="return checkId()">
-        <div style="margin:10px">
-            <span style="padding:20px">name</span>
-            <input type="text" name="name" id="name">
-        </div>
-
+    <form action="budget" method="post" name="information" id="information" onsubmit="return checkId()">
         <div style="margin:10px">
             <span style="padding:30px">id</span>
             <input type="text" name="id" id="id">
         </div>
         <input type="button" name="cancel" value="cancel" onclick="close();document.write('<n>')" style="margin:0px 30px">
         <input type="submit" name="submit" value="submit" style="margin:0px 20px">
-
-
     </form>
 </div>
-    <%
-        Object msg = request.getAttribute("errorStr");
-        if(msg!=null){
-            msg.toString();
-    %>
+<%
+    Object msg = request.getAttribute("msg");
+    if(msg!=null){
+        msg.toString();
+%>
         <div style="color:blue;text-align:center;font-size = 16px"><%=msg%></div>
-    <%
-    }
-    %>
+<%
+     }
+
+%>
+
 </body>
 </html>
