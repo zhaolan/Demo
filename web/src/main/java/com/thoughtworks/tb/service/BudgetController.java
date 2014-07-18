@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 /**
  * Created by lanzhao on 7/17/14.
@@ -20,13 +21,16 @@ public class BudgetController {
     @Autowired
     private BudgetClient client;
 
+    @Autowired
+    DataSource dataSource;
+
     @RequestMapping(method = RequestMethod.POST)
 
     public String printWelcome(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
-        EmployeeInfo employeeInfo = client.getInfo(id);
+        EmployeeInfo employeeInfo = client.getInfo(id,dataSource);
 
-        if(client.getMsg()==null){
+       if(client.getMsg()==null){
            // System.out.println(client.getMsg());
             request.setAttribute("id", employeeInfo.getId());
             request.setAttribute("name", employeeInfo.getName());
@@ -38,19 +42,6 @@ public class BudgetController {
             request.setAttribute("msg",client.getMsg());
             return "index";
         }
-
-       // System.out.println(employeeInfo.getId());
-      //  String test = "id=" + employeeInfo.getId() + "  name = " + employeeInfo.getName();
-      /*      PrintWriter pw  = null;//得到一个输出流
-            try {
-                pw = response.getWriter();
-                pw.println("<html><head></head><body><div>" + test + "</div></body></html>");
-                pw.flush();
-                pw.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
 
 
 

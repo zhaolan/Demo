@@ -12,14 +12,11 @@
 
     <context:annotation-config />
 
+
     <jdbc:embedded-database id="dataSource">
         <jdbc:script location="classpath:EmployeeScheme.sql"/>
         <jdbc:script location="classpath:AddDate.sql"/>
     </jdbc:embedded-database>
-
-
-    <bean id="budgetInfo" class="com.thoughtworks.tb.BudgetClient"/>
-    <bean id="getInfo" class="com.thoughtworks.tb.EmbeddedDBHandle"/>
 
 
 </beans>
