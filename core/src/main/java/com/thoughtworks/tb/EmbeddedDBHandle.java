@@ -26,6 +26,7 @@ public class EmbeddedDBHandle {
         msg = null;
         String EXPId = "EXP"+id;
         EmployeeInfo employee = new EmployeeInfo();
+        //JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         try {
             Connection con = dataSource.getConnection();
             Statement statement = SQLMethod.getStatement(con); String sqlCheck = "select * from employee where EmployeeID = '" + id + "';" ;
@@ -48,7 +49,11 @@ public class EmbeddedDBHandle {
                 employee.setCost(cost);
                 employee.setRemiand(remaind);
             }
-        }catch (SQLException e) {
+            result.close();
+            resultCheck.close();
+            statement.close();
+            statement1.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return employee;

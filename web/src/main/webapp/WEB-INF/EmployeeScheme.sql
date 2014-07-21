@@ -1,3 +1,4 @@
+
 create table employee(
     EmployeeID char(5) primary key,
     Name varchar(20),

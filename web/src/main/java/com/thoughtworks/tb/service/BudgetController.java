@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
@@ -26,7 +25,7 @@ public class BudgetController {
 
     @RequestMapping(method = RequestMethod.POST)
 
-    public String printWelcome(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+    public String printWelcome(ModelMap model, HttpServletRequest request) {
         String id = request.getParameter("id");
         EmployeeInfo employeeInfo = client.getInfo(id,dataSource);
 
@@ -42,9 +41,6 @@ public class BudgetController {
             request.setAttribute("msg",client.getMsg());
             return "index";
         }
-
-
-
     }
 
 

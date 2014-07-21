@@ -55,7 +55,7 @@
             <div style="margin-left:-36%;margin-bottom:10px">id</div>
             <input id="idInput" type="text" name="id" id="id">
         </div>
-        <input class="button" type="button" name="cancel" value="cancel" onclick="close();document.write('<n>')" style="margin:0px 30px">
+        <input class="button" type="reset" name="cancel" value="cancel" style="margin:0px 30px">
         <input  class="button" type="submit" name="submit" value="submit" style="margin:0px 20px">
     </form>
 </div>
